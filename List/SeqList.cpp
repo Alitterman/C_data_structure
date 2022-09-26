@@ -21,11 +21,23 @@ void InitList(SeqList &L){
 }
 //增加动态数组的长度
 void IncreaseSize(SeqList &L,int len){
-    int *p = L.data;
-    L.data = (ElemType *)malloc((L.MaxSize+len)*sizeof(ElemType));
-    for (int i=0; i<L.length;i++){
-        L.data[i] = p[i];
-    }
+    // int *p = L.data;
+    // L.data = (ElemType *)malloc((L.MaxSize+len)*sizeof(ElemType));
+    // for (int i=0; i<L.length;i++){
+    //     L.data[i] = p[i];
+    // }
+    L.data = (ElemType*) realloc(L.data,(L.MaxSize+len)*sizeof(ElemType));
     L.MaxSize += len;
-    free(p);
+}
+
+int main(){
+    SeqList L;
+    InitList(L);
+    printf("%d,%d\n",L.MaxSize,L.data);
+
+    IncreaseSize(L,200);
+
+    printf("%d,%d\n",L.MaxSize,L.data);
+    system("pause");
+    return 0;
 }
