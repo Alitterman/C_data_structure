@@ -213,51 +213,51 @@ bool DeleteElem(List &L, int i, ElemType &e)
     return true;
 }
 
-int main()
-{
-    List L;
-    ElemType e, x, y;
-    //初始化顺序表
-    InitList(L);
-    printf("The list is %s\n", isEmpty(L) ? "empty" : "not empty");
+// int main()
+// {
+//     List L;
+//     ElemType e, x, y;
+//     //初始化顺序表
+//     InitList(L);
+//     printf("The list is %s\n", isEmpty(L) ? "empty" : "not empty");
 
-    //插入数值10
-    InsertElem(L, 1, 10);
-    InsertElem(L, 2, 20);
-    InsertElem(L, 3, 30);
-    //输出数组中所有的元素
-    printf("Listlenght: %d, List values is:\n", L.lenght);
-    for (int i = 0; i < L.lenght; i++)
-    {
-        printf("%d\n", L.elem[i]);
-    }
+//     //插入数值10
+//     InsertElem(L, 1, 10);
+//     InsertElem(L, 2, 20);
+//     InsertElem(L, 3, 30);
+//     //输出数组中所有的元素
+//     printf("Listlenght: %d, List values is:\n", L.lenght);
+//     for (int i = 0; i < L.lenght; i++)
+//     {
+//         printf("%d\n", L.elem[i]);
+//     }
 
-    if (GetElem(L, 1, e))
-        printf("The frist element from list is:%d\n", e);
-    else
-        printf("GetElem error\n");
+//     if (GetElem(L, 1, e))
+//         printf("The frist element from list is:%d\n", e);
+//     else
+//         printf("GetElem error\n");
 
-    if (PriorElem(L, 30, x))
-        printf("The prior element from list is:%d\n", x);
-    else
-        printf("PriorElem error\n");
+//     if (PriorElem(L, 30, x))
+//         printf("The prior element from list is:%d\n", x);
+//     else
+//         printf("PriorElem error\n");
 
-    if (NextElem(L, 20, y))
-        printf("The next element from list is:%d\n", y);
-    else
-        printf("NextElem error\n");
+//     if (NextElem(L, 20, y))
+//         printf("The next element from list is:%d\n", y);
+//     else
+//         printf("NextElem error\n");
 
-    //删除第一个元素
-    DeleteElem(L, 1, e);
-    printf("delete element:%d\n", e);
-    // printf("The list is %s\n", isEmpty(L) ? "empty" : "not empty");
+//     //删除第一个元素
+//     DeleteElem(L, 1, e);
+//     printf("delete element:%d\n", e);
+//     // printf("The list is %s\n", isEmpty(L) ? "empty" : "not empty");
 
-    //输出数组中所有的元素
-    printf("Listlenght: %d, List values is:\n", L.lenght);
-    for (int i = 0; i < L.lenght; i++)
-    {
-        printf("%d\n", L.elem[i - 1]);
-    }
-    system("pause");
-    return 0;
-}
+//     //输出数组中所有的元素
+//     printf("Listlenght: %d, List values is:\n", L.lenght);
+//     for (int i = 0; i < L.lenght; i++)
+//     {
+//         printf("%d\n", L.elem[i - 1]);
+//     }
+//     system("pause");
+//     return 0;
+// }
