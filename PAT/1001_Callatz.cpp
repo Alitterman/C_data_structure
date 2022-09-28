@@ -17,7 +17,7 @@ int main(){
         }
         sum++;
 
-    }
+    };
     printf("%d\n",sum);
     system("pause");
     return 0;

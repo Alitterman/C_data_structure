@@ -6,7 +6,7 @@
 typedef struct TreeNode{
     int value[MaxSize];
     bool isEmpty;
-}
+};
 
 //链式存储
 typedef struct BiTNode{
@@ -14,19 +14,23 @@ typedef struct BiTNode{
     struct BiTNode *lchild, *rchild;
 }BiTNode,*BiTree;
 
-bool initTree(BiTNode &root){
-    root  = (BiTNode) malloc(sizeof(BiTNode));
-    root.data = 1;
-    root->lchild = NUll;
-    root->rchild = NUll;
-
-}
+bool initTree(BiTree &root);
 
 
-int main{
-    BiTNode root;
+bool initTree(BiTree &root){
+    root = new BiTNode;
+    root->data = 1;
+    root->lchild = NULL;
+    root->rchild = NULL;
+
+};
+
+
+int main()
+{
+    BiTree root;
     initTree(root);
-
-}
+    return 0;
+};
 
 
