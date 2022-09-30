@@ -6,13 +6,24 @@
 typedef struct
 {
 
-    char ch[MaxSize];
+    char *ch;
     int length = 0;
 } SString;
+
+bool InitString(SString &T){
+    if(&T == NULL) return false;
+
+    T.ch = new char[MaxSize];
+    if(T.ch == NULL) return false;
+
+    T.length = 0;
+    return true;
+}
+
 //赋值操作
 bool StrAssign(SString &T, char *chars)
-{
-    T.length = 0;
+{   
+    InitString(T);
     for (int i = 0; chars[i]; i++)
     {
         if (i >= MaxSize)
@@ -92,7 +103,18 @@ bool SubString(SString &Sub, SString S, int pos, int len)
 */
 int Compare(SString S,SString T){
     
-
+    int i = 0;
+    
+    while(i <= S.length && i <= T.length) {
+        // 遇到不同的字符时，比较其大小
+        if(S.ch[i] != T.ch[i]) {
+            return S.ch[i] - T.ch[i];
+        }
+        
+        i++;
+    }
+    
+    return S.length - T.length;
 
 }
 
