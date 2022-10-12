@@ -6,7 +6,7 @@ using namespace std;
 
 typedef struct LNode
 {
-    ElemType date;
+    ElemType data;
 
     struct LNode *next;
 } LNode, *LinkList;
@@ -141,7 +141,7 @@ bool GetElem(LinkList L, int i, ElemType &e){
         return false;
     }
 
-    e = L->date;
+    e = L->data;
 
     return true;
 
@@ -181,22 +181,60 @@ bool insertList(LinkList &L, int i, ElemType e)
     }
     //生成新节点
     LinkList s = (LinkList )malloc(sizeof(LNode));
-    s->date = e;
+    s->data = e;
     s->next = p->next; 
     p->next = s;
     return true;
 }
 
+int find_k(LinkList L,int K,int &x)
+{
+    int length;
+    LinkList p;
+    if (&L == NULL || L == NULL) //确保链表结构存在
+    {
+        return -1;
+    }
+
+    if (K < 1)
+    {
+        return false;
+    }
+
+    length = ListLength(L);
+    length = length-K;
+    
+    p = L->next;
+    while(p!=NULL && length>0){
+        length--;
+        p = p->next;
+    }
+
+    x = p->data;
+
+    return 0;
+
+
+
+}
 int main()
 {
     LinkList L;
     int x;
     InitList(L);
-    insertList(L,1,10);
-    cout << L->date<<" " <<L->next<<endl;
-    GetElem(L,1,x);
-
-    cout << x<<endl;
+    for(int i = 1; i < 10;i++){
+        insertList(L,i,i*10);
+    }
+    for(int i = 1; i < 10;i++){
+        GetElem(L,i,x);
+        cout << x<<endl;
+    }
+    for(int i =1;i<10;i++){
+        find_k(L,i,x);
+        cout << x<<endl;
+    }
+    
+    
     system("pause");
 
 
